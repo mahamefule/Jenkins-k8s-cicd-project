@@ -9,7 +9,7 @@
     - Login to `Your GitHub Account`
     - Create a Repository called `Jenkins-Realworld-CICD-Project`
     - Clone the Repository in the `Repository` directory/folder on your `local machine`
-    - Download the code in in this repository `"Main branch"`: https://github.com/awanmbandi/realworld-microservice-project.git
+    - Download the code in in this repository `"Main branch"`: https://github.com/mahamefule/realworld-microservice-project.git
     - `Unzip` the `code/zipped file`
     - `Copy` and `Paste` everything `from the zipped file` into the `repository you cloned` in your local
     - Open your `Terminal`
@@ -22,12 +22,12 @@
 3) Jenkins/Maven
     - Create a Jenkins VM instance 
     - Name: `Jenkins/Maven/Ansible`
-    - AMI: `Amazon Linux 2`
+    - GCP: `Linux 2`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Edit/Open): `8080, 9100` and `22 to 0.0.0.0/0`
-    - IAM instance profile: Select the `AWS-EC2FullAccess-Role`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
+    - IAM instance profile: Select the `GCP-VMFullAccess-Role`
+    - User data (Copy the following user data): https://github.com/mahamefule/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
     - Launch Instance
 
 4) SonarQube
@@ -37,17 +37,17 @@
     - Instance type: `t2.medium`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `9000, 9100` and `22 to 0.0.0.0/0`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
+    - User data (Copy the following user data): https://github.com/mahamefule/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
     - Launch Instance
 
 5) JFrog Artifactory
     - Create a Nexus VM instance 
     - Name: `JFrog-Artifactory`
-    - AMI: `Amazon Linux 2`
+    - GCP: `Linux 2`
     - Instance type: `t2.medium`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8081, 8082` and `22 to 0.0.0.0/0`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
+    - User data (Copy the following user data): https://github.com/mahamefule/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
     - Launch Instance
 
 
@@ -70,7 +70,7 @@
     - Copy the Path from the Jenkins UI to get the Administrator Password
         - Run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
         - Copy the password and login to Jenkins
-    ![JenkinsSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png) 
+    ![JenkinsSetup1!](https://github.com/mahamefule/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png) 
     - Plugins: Choose `Install Suggested Plugings` 
     - Provide 
         - Username: **`admin`**
@@ -78,7 +78,7 @@
         - `Name` and `Email` can also be admin. You can use `admin` all, as its a poc.
     - Click `Continue`
     - Click on `Start using Jenkins`
-    ![JenkinsSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png) 
+    ![JenkinsSetup2!](https://github.com/mahamefule/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png) 
 
 2)  #### Plugin installations:
     - Click on `Manage Jenkins`
@@ -137,14 +137,14 @@
 
 3)  #### Global tools configuration:
     - Click on Manage Jenkins -->> Global Tool Configuration
-    ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/sdsdsdsdsd.png)
+    ![JDKSetup!](https://github.com/mahamefule/realworld-cicd-pipeline-project/blob/zdocs/images/sdsdsdsdsd.png)
 
     - **Maven** 
       - Click on `Add Maven` 
       - Disable/Uncheck **`Install automatically`**  
       * Name: **`maven`**
       - Click on `SAVE`
-      ![MavenSetup!](https://github.com/awanmbandi/realworld-microservice-project/blob/zdocs/images/agasdgbsfdb.png)
+      ![MavenSetup!](https://github.com/mahamefule/realworld-microservice-project/blob/zdocs/images/agasdgbsfdb.png)
 
     
 3)  #### Configure System:
@@ -154,7 +154,7 @@
       - Click on `Add SonarQube`
       - Server URL: http://YOUR_SONARQUBE_PRIVATE_IP:9000
       - Server authentication token: Select `SonarQube-Token`
-      ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
+      ![SonarQubeServerSetup!](https://github.com/mahamefule/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
 3)  #### Configure System:
     #### 3.1) Configure JFrog Artifactory
@@ -164,7 +164,7 @@
       - Instance ID: `jfrog`
       - JFrog Platform URL: http://YOUR_SONARQUBE_PRIVATE_IP:8082/artifactory
       - Server authentication token: Select `SonarQube-Token`
-      ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
+      ![SonarQubeServerSetup!](https://github.com/mahamefule/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
 
 
